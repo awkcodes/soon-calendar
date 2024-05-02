@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './calendar.css';
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 
 function Calendar({ initialYear, initialMonth }) {
   const [year, setYear] = useState(initialYear);
@@ -36,9 +38,9 @@ function Calendar({ initialYear, initialMonth }) {
   return (
     <div className="calendar">
      <div className="navigation">
-       <button onClick={handlePrevMonth}>&laquo; Prev Month</button>
-       <span>{`${year} - ${month}`}</span>
-       <button onClick={handleNextMonth}>Next Month &raquo;</button>
+       <button onClick={handlePrevMonth} aria-label="Previous Month">&laquo; Prev</button>
+       <span>{`${year} - ${months[month - 1]}`}</span>
+       <button onClick={handleNextMonth} aria-label="Next Month">Next &raquo;</button>
      </div>
            
       <div className="header">
